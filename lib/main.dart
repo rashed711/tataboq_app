@@ -26,6 +26,12 @@ class ImagePage extends StatefulWidget {
 class _ImagePageState extends State<ImagePage> {
   int leftImmageNumber = 1;
   int rightImmageNumber = 2;
+
+  void changeImage() {
+    leftImmageNumber = Random().nextInt(8) + 1;
+    rightImmageNumber = Random().nextInt(8) + 1;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -41,8 +47,7 @@ class _ImagePageState extends State<ImagePage> {
               child: TextButton(
                 onPressed: () {
                   setState(() {
-                    leftImmageNumber = Random().nextInt(8) + 1;
-                    rightImmageNumber = Random().nextInt(8) + 1;
+                    changeImage();
                   });
                 },
                 child: Image.asset('images/image-$leftImmageNumber.png'),
@@ -53,8 +58,7 @@ class _ImagePageState extends State<ImagePage> {
               child: TextButton(
                 onPressed: () {
                   setState(() {
-                    rightImmageNumber = Random().nextInt(8) + 1;
-                    leftImmageNumber = Random().nextInt(8) + 1;
+                    changeImage();
                   });
                 },
                 child: Image.asset('images/image-$rightImmageNumber.png'),
